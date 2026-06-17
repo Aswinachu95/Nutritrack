@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Daily Summary | NutriTrack{% endblock %}
+
+{% block content %}
+<div class="page-card">
+  <h1>Daily Summary</h1>
+  <p style="color:#6b7280;">View aggregated macros for a selected date.</p>
+
+  <form method="get" style="margin-bottom:1rem; display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-end;">
+    <div class="form-group" style="flex:1; min-width:200px; margin-bottom:0;">
+      <label for="date">Date</label>
+      <input type="date" name="date" id="date" value="{{ selected_date }}">
+    </div>
+    <button class="btn btn-primary" type="submit">Show Summary</button>
+  </form>
+
+  {% if selected_date %}
+    <div class="summary-grid">
+      <div>
+        <strong>Calories</strong>
+        <p>{{ calories|default:'0' }}</p>
+      </div>
+      <div>
+        <strong>Protein</strong>
+        <p>{{ protein|default:'0' }}</p>
+      </div>
+      <div>
+        <strong>Carbs</strong>
+        <p>{{ carbs|default:'0' }}</p>
+      </div>
+      <div>
+        <strong>Fat</strong>
+        <p>{{ fat|default:'0' }}</p>
+      </div>
+    </div>
+    <div class="card-actions" style="margin-top:1.5rem;">
+      <a class="btn btn-secondary" href="{% url 'meal-logs' %}">Add Meal</a>
+      <a class="btn btn-secondary" href="{% url 'foods-list' %}">Browse Foods</a>
+    </div>
+  {% else %}
+    <div class="info-box">
+      <p>Select a date and click Show Summary to see your daily macro totals.</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

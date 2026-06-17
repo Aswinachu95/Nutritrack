@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Foods | NutriTrack{% endblock %}
+
+{% block content %}
+<div class="page-card">
+  <h1>Food Database</h1>
+  <p style="color:#6b7280;">Browse common Indian foods. Use admin to edit/import more items.</p>
+
+  <div id="foods-root">
+    {% if foods %}
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Region</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Carbs</th>
+            <th>Fat</th>
+            <th>Fiber</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for food in foods %}
+          <tr>
+            <td><a href="{% url 'food-detail' food.pk %}">{{ food.name }}</a></td>
+            <td>{{ food.category }}</td>
+            <td>{{ food.region }}</td>
+            <td>{{ food.calories }}</td>
+            <td>{{ food.protein }}</td>
+            <td>{{ food.carbs }}</td>
+            <td>{{ food.fat }}</td>
+            <td>{{ food.fiber }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="info-box">
+        <p>No foods are available yet. Add foods through the admin panel or import the demo CSV.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+name,category,region,is_vegetarian,calories,protein,carbs,fat,fiber
+Idli,Breakfast,South India,True,58,2.0,12.0,0.5,0.4
+Dosa,Breakfast,South India,True,133,3.5,18.0,5.0,1.5
+Chapati,Bread,North India,True,71,3.0,15.0,1.0,1.5
+Dal Tadka,Main course,North India,True,150,8.0,18.0,5.0,4.0
+Sambar,Soup,South India,True,90,4.0,15.0,2.5,3.0
+Palak Paneer,Main course,North India,True,210,10.0,8.0,15.0,4.0
+Chana Masala,Main course,North India,True,190,8.0,28.0,5.5,8.0
+Paneer Bhurji,Main course,North India,True,220,11.0,7.0,16.5,2.0
+Aloo Paratha,Bread,North India,True,260,5.0,35.0,10.0,3.5
+Biryani,Main course,North India,False,290,12.0,40.0,9.0,3.0
+Masala Chai,Beverage,All India,True,120,2.0,18.0,4.5,0.0
+Raita,Side dish,North India,True,60,3.0,5.0,3.0,1.0
+Gulab Jamun,Dessert,North India,True,150,2.0,25.0,5.0,0.5
+Samosa,Snack,North India,True,260,4.0,30.0,14.0,2.0
+Pongal,Breakfast,South India,True,215,6.0,35.0,5.0,2.0
+Rasam,Soup,South India,True,40,2.0,6.0,0.5,1.0
+Kadhi,Main course,North India,True,175,6.0,18.0,9.0,1.5
+Vegetable Pulao,Main course,North India,True,205,5.0,35.0,6.0,4.0
+Methi Thepla,Bread,West India,True,190,4.0,25.0,7.0,3.5
+Rajma,Main course,North India,True,180,9.0,30.0,3.5,7.0
+Paneer Tikka,Appetizer,North India,True,170,11.0,8.0,11.0,2.0
+Butter Chicken,Main course,North India,False,320,15.0,10.0,22.0,1.5
+Tandoori Chicken,Main course,North India,False,260,23.0,5.0,16.0,0.0
+Aloo Gobi,Main course,North India,True,150,4.0,18.0,7.0,4.0
+Dhokla,Snack,West India,True,160,5.0,25.0,5.0,1.5
+Paneer Butter Masala,Main course,North India,True,300,13.0,12.0,20.0,2.5
+Pav Bhaji,Street food,West India,True,240,6.0,32.0,10.0,4.0
+Masala Dosa,Breakfast,South India,True,180,4.5,20.0,8.0,2.0
+Rava Upma,Breakfast,South India,True,160,4.0,25.0,5.0,2.5

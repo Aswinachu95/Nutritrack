@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Food | NutriTrack{% endblock %}
+
+{% block content %}
+<div class="page-card">
+  {% if food %}
+    <a class="btn btn-secondary" href="{% url 'foods-list' %}">← Back to Foods</a>
+    <h1>{{ food.name }}</h1>
+    <p class="meta-text">{{ food.category }} — {{ food.region }}{% if food.is_vegetarian %} · Vegetarian{% endif %}</p>
+
+    <div class="summary-grid">
+      <div>
+        <strong>Calories</strong>
+        <p>{{ food.calories }}</p>
+      </div>
+      <div>
+        <strong>Protein</strong>
+        <p>{{ food.protein }} g</p>
+      </div>
+      <div>
+        <strong>Carbs</strong>
+        <p>{{ food.carbs }} g</p>
+      </div>
+      <div>
+        <strong>Fat</strong>
+        <p>{{ food.fat }} g</p>
+      </div>
+      <div>
+        <strong>Fiber</strong>
+        <p>{{ food.fiber }} g</p>
+      </div>
+    </div>
+  {% else %}
+    <h1>Food not found</h1>
+    <p class="meta-text">This item may have been removed or does not exist. Return to the food list to continue browsing.</p>
+  {% endif %}
+</div>
+{% endblock %}

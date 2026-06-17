@@ -1,0 +1,9 @@
+Django>=5.2
+django-filter>=25.2
+djangorestframework>=3.17
+drf-spectacular>=0.29
+djangorestframework-simplejwt>=5.5
+django-import-export>=3.0
+PyYAML>=6.0
+jsonschema>=4.26
+uritemplate>=4.2

@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Diet Plans | NutriTrack{% endblock %}
+
+{% block content %}
+<div class="page-card">
+  <h1>Diet Plans</h1>
+  <p style="color:#6b7280;">Create and manage diet plans.</p>
+
+  <div class="grid-2" style="gap:2rem; align-items:flex-start;">
+    <div>
+      <h3>New Plan</h3>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-group">{{ form.name.label_tag }}{{ form.name }}</div>
+        <div class="form-group">{{ form.target_calories.label_tag }}{{ form.target_calories }}</div>
+        <button class="btn btn-primary" type="submit">Create Plan</button>
+      </form>
+      <div class="card-actions" style="margin-top:1.5rem;">
+        <a class="btn btn-secondary" href="{% url 'meal-logs' %}">View Meal Logs</a>
+        <a class="btn btn-secondary" href="{% url 'daily-summary-page' %}">Daily Summary</a>
+      </div>
+    </div>
+
+    <div>
+      <h3>Your Plans</h3>
+      <ul class="plan-list">
+        {% for plan in plans %}
+          <li><strong>{{ plan.name }}</strong> — {{ plan.target_calories }} kcal</li>
+        {% empty %}
+          <li>No plans yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

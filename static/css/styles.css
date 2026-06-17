@@ -1,0 +1,524 @@
+/* ============================================================================
+   RESET & ROOT STYLES
+   ============================================================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #1e40af;
+  --primary-light: #eff6ff;
+  --secondary: #10b981;
+  --gray-900: #111827;
+  --gray-800: #1f2937;
+  --gray-700: #374151;
+  --gray-600: #4b5563;
+  --gray-500: #6b7280;
+  --gray-400: #9ca3af;
+  --gray-300: #d1d5db;
+  --gray-200: #e5e7eb;
+  --gray-100: #f3f4f6;
+  --gray-50: #f9fafb;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  color: var(--gray-900);
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   LAYOUT & CONTAINER
+   ============================================================================ */
+.container {
+  width: min(1000px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+main.container {
+  min-height: calc(100vh - 140px);
+}
+
+/* ============================================================================
+   HEADER & NAVIGATION
+   ============================================================================ */
+.site-header {
+  background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+  color: var(--white);
+  padding: 1.25rem 0;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1000px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.brand {
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  transition: var(--transition);
+}
+
+.brand:hover {
+  opacity: 0.8;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+nav a {
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 0.5rem;
+  transition: var(--transition);
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+/* ============================================================================
+   TYPOGRAPHY
+   ============================================================================ */
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--gray-700);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* ============================================================================
+   CARDS
+   ============================================================================ */
+.page-card,
+.form-card,
+.summary-card {
+  background: var(--white);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  transition: var(--transition);
+}
+
+.page-card:hover,
+.form-card:hover,
+.summary-card:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+.page-card {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   FORM ELEMENTS
+   ============================================================================ */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--gray-800);
+  font-size: 0.95rem;
+}
+
+.grid-2 {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+input,
+select,
+textarea,
+.form-control,
+.form-select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 0.75rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--gray-50);
+  color: var(--gray-900);
+  transition: var(--transition);
+}
+
+.form-control:focus,
+.form-select:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--gray-200);
+  text-align: left;
+}
+
+.data-table thead {
+  background: var(--gray-100);
+}
+
+.info-box {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: var(--gray-700);
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.field-error {
+  color: var(--primary);
+  font-size: 0.85rem;
+}
+
+.plan-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plan-list li {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.75rem;
+  margin-bottom: 0.75rem;
+  background: var(--gray-50);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  background: var(--white);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+input::placeholder {
+  color: var(--gray-400);
+}
+
+input:disabled,
+select:disabled {
+  background: var(--gray-100);
+  color: var(--gray-500);
+  cursor: not-allowed;
+}
+
+/* ============================================================================
+   BUTTONS
+   ============================================================================ */
+button.btn,
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.75rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--gray-200);
+  color: var(--gray-900);
+  border: 2px solid var(--gray-300);
+}
+
+.btn-secondary:hover {
+  background: var(--gray-100);
+  border-color: var(--gray-400);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+button[type="submit"] {
+  margin-top: 0.5rem;
+}
+
+/* ============================================================================
+   SUMMARY GRID
+   ============================================================================ */
+.summary-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 1.5rem;
+}
+
+.summary-grid > div {
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+  padding: 1.75rem;
+  border-radius: 0.875rem;
+  border: 1px solid var(--gray-200);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.summary-grid > div:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.summary-grid strong {
+  display: block;
+  color: var(--gray-600);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.summary-grid p {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* ============================================================================
+   HELPER CLASSES
+   ============================================================================ */
+.meta-text {
+  color: var(--gray-500);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.hero-actions .btn {
+  flex-shrink: 0;
+}
+
+/* ============================================================================
+   FOOTER
+   ============================================================================ */
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--gray-500);
+  border-top: 1px solid var(--gray-200);
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+@media (max-width: 768px) {
+  .container {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+  }
+
+  .header-inner {
+    width: calc(100% - 1rem);
+  }
+
+  .page-card,
+  .form-card,
+  .summary-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    gap: 0.25rem;
+  }
+
+  nav a {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  button.btn,
+  a.btn {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  .page-card,
+  .form-card,
+  .summary-card {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  button.btn,
+  a.btn {
+    width: 100%;
+  }
+}

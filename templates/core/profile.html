@@ -1,0 +1,94 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Profile | NutriTrack{% endblock %}
+
+{% block content %}
+<div class="page-card">
+  <div class="grid-2" style="gap:2rem; align-items:start;">
+    <div>
+      <h1>Your Nutrition Profile</h1>
+      <p class="meta-text">Update your personal information to calculate daily nutrition targets.</p>
+    </div>
+    <div style="text-align:right;">
+      <a class="btn btn-secondary" href="{% url 'daily-summary-page' %}">View Daily Summary</a>
+    </div>
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="grid-2">
+      <div class="form-group">
+        {{ form.age.label_tag }}
+        {{ form.age }}
+        {% if form.age.errors %}<span class="field-error">{{ form.age.errors }}</span>{% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.gender.label_tag }}
+        {{ form.gender }}
+        {% if form.gender.errors %}<span class="field-error">{{ form.gender.errors }}</span>{% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.height_cm.label_tag }}
+        {{ form.height_cm }}
+        {% if form.height_cm.errors %}<span class="field-error">{{ form.height_cm.errors }}</span>{% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.weight_kg.label_tag }}
+        {{ form.weight_kg }}
+        {% if form.weight_kg.errors %}<span class="field-error">{{ form.weight_kg.errors }}</span>{% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.activity_level.label_tag }}
+        {{ form.activity_level }}
+        {% if form.activity_level.errors %}<span class="field-error">{{ form.activity_level.errors }}</span>{% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.goal.label_tag }}
+        {{ form.goal }}
+        {% if form.goal.errors %}<span class="field-error">{{ form.goal.errors }}</span>{% endif %}
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Save Profile</button>
+  </form>
+</div>
+
+<section class="summary-card">
+  <h2>Daily Nutrition Targets</h2>
+  <p class="meta-text">Based on your profile information.</p>
+  {% if user.profile.bmr and user.profile.target_calories %}
+    <div class="summary-grid">
+      <div>
+        <strong>BMR</strong>
+        <p>{{ user.profile.bmr|floatformat:0 }}</p>
+        <span class="meta-text">kcal/day</span>
+      </div>
+      <div>
+        <strong>Target Calories</strong>
+        <p>{{ user.profile.target_calories|floatformat:0 }}</p>
+        <span class="meta-text">kcal/day</span>
+      </div>
+      <div>
+        <strong>Protein</strong>
+        <p>{{ user.profile.target_protein_g|default:'—' }}</p>
+        <span class="meta-text">grams</span>
+      </div>
+      <div>
+        <strong>Carbs</strong>
+        <p>{{ user.profile.target_carbs_g|default:'—' }}</p>
+        <span class="meta-text">grams</span>
+      </div>
+      <div>
+        <strong>Fat</strong>
+        <p>{{ user.profile.target_fat_g|default:'—' }}</p>
+        <span class="meta-text">grams</span>
+      </div>
+    </div>
+  {% else %}
+    <div class="info-box">
+      <p>Complete all profile fields above to calculate your BMR and target macros.</p>
+      <p class="meta-text">Age, gender, height, weight, activity level, and goal must be entered first.</p>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

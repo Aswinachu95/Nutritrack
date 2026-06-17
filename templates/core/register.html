@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Register | NutriTrack{% endblock %}
+
+{% block content %}
+<div class="page-card" style="max-width: 500px; margin: 0 auto;">
+  <h1>Create your account</h1>
+  <p style="color: #6b7280; margin-bottom: 2rem;">Join NutriTrack to start tracking your nutrition</p>
+  
+  <form method="post">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+      <div style="background: #fee2e2; color: #dc2626; padding: 1rem; border-radius: 0.75rem; margin-bottom: 1.5rem; border-left: 4px solid #dc2626;">
+        {{ form.non_field_errors }}
+      </div>
+    {% endif %}
+    
+    <div class="form-group">
+      {{ form.username.label_tag }}
+      {{ form.username }}
+      {% if form.username.errors %}<span style="color: #dc2626; font-size: 0.85rem;">{{ form.username.errors }}</span>{% endif %}
+      {% if form.username.help_text %}<span style="color: #6b7280; font-size: 0.8rem;">{{ form.username.help_text|safe }}</span>{% endif %}
+    </div>
+    
+    <div class="form-group">
+      {{ form.email.label_tag }}
+      {{ form.email }}
+      {% if form.email.errors %}<span style="color: #dc2626; font-size: 0.85rem;">{{ form.email.errors }}</span>{% endif %}
+    </div>
+    
+    <div class="form-group">
+      {{ form.password1.label_tag }}
+      {{ form.password1 }}
+      {% if form.password1.errors %}<span style="color: #dc2626; font-size: 0.85rem;">{{ form.password1.errors }}</span>{% endif %}
+      {% if form.password1.help_text %}<span style="color: #6b7280; font-size: 0.8rem;">{{ form.password1.help_text|safe }}</span>{% endif %}
+    </div>
+    
+    <div class="form-group">
+      {{ form.password2.label_tag }}
+      {{ form.password2 }}
+      {% if form.password2.errors %}<span style="color: #dc2626; font-size: 0.85rem;">{{ form.password2.errors }}</span>{% endif %}
+    </div>
+    
+    <button class="btn btn-primary" type="submit" style="width: 100%; margin-top: 1.5rem;">Create Account</button>
+  </form>
+  
+  <p class="meta-text" style="text-align: center; margin-top: 1.5rem;">Already have an account? <a href="{% url 'login' %}">Log in here</a></p>
+</div>
+{% endblock %}
